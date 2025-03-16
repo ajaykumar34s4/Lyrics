@@ -58,8 +58,18 @@ const Lyrics = () => {
   };
 
   const checkGuess = () => {
+    if (!lyrics.trim()) {
+      toast.error("Generate lyrics first before guessing!");
+      return;
+    }
+
+    if (!guess.trim()) {
+      toast.error("Please enter a song name before guessing!");
+      return;
+    }
+
     if (guess.trim().toLowerCase() === correctTitle.toLowerCase()) {
-      toast.success("Correct Guess Wonderful! ");
+      toast.success("Correct Guess! Wonderful!");
     } else {
       toast.error(`Wrong! The correct answer was: ${correctTitle}`);
     }
