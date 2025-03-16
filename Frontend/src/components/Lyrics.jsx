@@ -32,10 +32,13 @@ const Lyrics = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/generate-lyrics", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        "https://lyrics-4ljz.onrender.com/generate-lyrics",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       const data = await response.json();
       if (data.lyrics && data.title) {
